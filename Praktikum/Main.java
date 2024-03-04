@@ -9,13 +9,27 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.Inet4Address;
 
-class Mahasiswa{
+ class Mahasiswa{
     public String nim;
     public String nama;
     public int umur;
+
+    public Mahasiswa(String nim, String nama, int umur) {
+        this.nim = nim;
+        this.nama = nama;
+        this.umur = umur;
+    }
+
+    public void sapa() {
+        System.out.println("Hai");
+    }
+
+    public int satu() {
+        return 1;
+    }
 }
 
-public class Main    {
+public class Main {
     //pendataan mahasiswa
     public static int menu;
 
@@ -35,11 +49,11 @@ public class Main    {
         InputStreamReader input = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(input);
 
-        Mahasiswa baru = new Mahasiswa();
+        String namainp = br.readLine();
+        String niminp = br.readLine();
+        int umurinp = Integer.parseInt(br.readLine());
 
-        baru.nama = br.readLine();
-        baru.nim = br.readLine();
-        baru.umur = Integer.parseInt(br.readLine());
+        Mahasiswa baru = new Mahasiswa(namainp, niminp, umurinp);
 
         unmul.add(baru);
     }
