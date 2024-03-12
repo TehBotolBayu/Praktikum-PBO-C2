@@ -9,7 +9,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.Inet4Address;
 
- class Mahasiswa{
+ class Mahasiswa {
     public String nim;
     public String nama;
     public int umur;
@@ -67,7 +67,24 @@ public class Main {
         unmul.remove(index);
     }
 
+    public static void nerimaDamage(Player mage) {
+       mage.TakeDamage(20);
+    
+    }
+
+    public static void buatPlayerJadiKalah (Player mage){
+        mage.kalah();
+    }
+
+    public static void buatPlayerJadiMenang (Player mage){
+        mage.menang();
+    }
+
+    public static void nambahpoin (Player mage){
+        mage.tambahpoin(2000);
+    }
     public static void main(String[] args) throws IOException{
+        Player mage = new Player("Farrel", 120, 500, 3, 50, 40);
 
         ArrayList<Mahasiswa> unmul = new ArrayList<>();
         boolean jalan = true;
@@ -77,6 +94,10 @@ public class Main {
             System.out.println("2. Hapus mahasiswa");
             System.out.println("3. Tambah mahasiswa");
             System.out.println("4. keluar");
+            System.out.println("5. damage player");
+            System.out.println("6. kalah player");
+            System.out.println("7. meanng player");
+            System.out.println("8. tambah poin player");
     
             // menu = input.nextInt();
             InputStreamReader isr = new InputStreamReader(System.in);
@@ -94,6 +115,18 @@ public class Main {
                 case 3:
                     tambah(unmul);
                     break;
+                case 5:
+                    nerimaDamage(mage);
+                    break;
+                case 6:
+                    buatPlayerJadiKalah(mage);
+                    break;                
+                case 7:
+                    buatPlayerJadiMenang(mage);
+                    break;
+                case 8:
+                    nambahpoin(mage);
+                        break;
                 default:
                     input.close();
                     jalan = false;
