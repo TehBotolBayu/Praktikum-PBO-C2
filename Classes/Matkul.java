@@ -23,7 +23,7 @@ class MatkulLanjut extends Matkul {
         super(name, jumlah);
     }
 
-    protected void show3 () {
+    public void show3 () {
         show2();
     }
 }

@@ -9,7 +9,7 @@ public class Player {
     int DEF;
     float CRT;
     int poin;
-    
+
     public Player(String name, int HP, int MP, int SPD, int DEF, float CRT){
         this.name = name;
         this.HP = HP;
