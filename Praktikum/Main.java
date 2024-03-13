@@ -1,7 +1,6 @@
 package Praktikum;
 import java.util.ArrayList;
 import java.util.Scanner;
-
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -42,10 +41,16 @@ public class Main {
         }
     }
 
-    public static void tambah(ArrayList<Mahasiswa> unmul) throws IOException{
-        String nama, nim;
-        int umur;
+    public static void tampilBuku(ArrayList<Buku> buku){
+        for(int i = 0; i < buku.size(); i++){
+            System.err.println("buku ke "+i);
+            System.out.println(buku.get(i).getNama());
+            System.out.println(buku.get(i).getPenulis());
+            System.out.println(buku.get(i).getNoBuku());
+        }
+    }
 
+    public static void tambah(ArrayList<Mahasiswa> unmul) throws IOException{
         InputStreamReader input = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(input);
 
@@ -54,8 +59,38 @@ public class Main {
         int umurinp = Integer.parseInt(br.readLine());
 
         Mahasiswa baru = new Mahasiswa(namainp, niminp, umurinp);
+        Matkul baruMatkul = new Matkul("Kalkulus", 20);
 
+        baruMatkul.show2();
         unmul.add(baru);
+    }
+
+    public static void tambahMatkul(ArrayList<Matkul> matakuliah) throws IOException{
+        InputStreamReader input = new InputStreamReader(System.in);
+        BufferedReader br = new BufferedReader(input);
+
+        String namainp = br.readLine();
+        int tambahinp = Integer.parseInt(br.readLine());
+
+        Matkul baruMatkul = new Matkul(namainp, tambahinp);
+
+       matakuliah.add(baruMatkul);
+    }
+
+    public static void tambahBuku(ArrayList<Buku> buku) throws IOException{
+        InputStreamReader input = new InputStreamReader(System.in);
+        BufferedReader br = new BufferedReader(input);
+
+        String namainp = br.readLine();
+        String penulis = br.readLine();
+        String nomorBuku = br.readLine();
+
+        Buku baruBuku = new Buku();
+        baruBuku.setNama(namainp);
+        baruBuku.setPenulis(penulis);
+        baruBuku.setNoBuku(nomorBuku);
+
+        buku.add(baruBuku);
     }
 
     public static void hapus(ArrayList<Mahasiswa> unmul) throws IOException{
@@ -87,6 +122,8 @@ public class Main {
         Player mage = new Player("Farrel", 120, 500, 3, 50, 40);
 
         ArrayList<Mahasiswa> unmul = new ArrayList<>();
+        ArrayList<Matkul> matakuliah = new ArrayList<>();
+        ArrayList<Buku> buku = new ArrayList<>();
         boolean jalan = true;
         Scanner input = new Scanner(System.in);
         while(jalan){
@@ -98,6 +135,9 @@ public class Main {
             System.out.println("6. kalah player");
             System.out.println("7. meanng player");
             System.out.println("8. tambah poin player");
+            System.out.println("9. Tambah matkul");
+            System.out.println("10. Tambah buku");
+            System.out.println("11. Tampilkan buku");
     
             // menu = input.nextInt();
             InputStreamReader isr = new InputStreamReader(System.in);
@@ -120,12 +160,21 @@ public class Main {
                     break;
                 case 6:
                     buatPlayerJadiKalah(mage);
-                    break;                
+                    break;
                 case 7:
                     buatPlayerJadiMenang(mage);
                     break;
                 case 8:
                     nambahpoin(mage);
+                    break;
+                case 9:
+                    tambahMatkul(matakuliah);
+                    break;
+                case 10:
+                    tambahBuku(buku);
+                    break;
+                case 11:
+                    tampilBuku(buku);
                         break;
                 default:
                     input.close();
