@@ -1,4 +1,4 @@
-package Praktikum;
+package Classes;
 
 public class Matkul {
     private String nama;
@@ -24,6 +24,6 @@ class MatkulLanjut extends Matkul {
     }
 
     protected void show3 () {
-       show2();
+        show2();
     }
 }

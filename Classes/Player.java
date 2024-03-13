@@ -1,4 +1,4 @@
-package Praktikum;
+package Classes;
 
 public class Player {
 
@@ -19,17 +19,17 @@ public class Player {
         this.CRT = CRT;
     }
 
-    void TakeDamage (int damage){
+    public void TakeDamage (int damage){
         this.HP -= damage;
 
         System.out.println("Darah abangku tersisa : " + this.HP);
     }
 
-    void tambahpoin(int poinBaru) {
+    public void tambahpoin(int poinBaru) {
         this.poin += poinBaru;
     }
 
-    void kalah() {
+    public void kalah() {
         if (this.HP <= 0 ){
             System.out.println("Sudah kalah abangkuh");
         } else {
@@ -37,7 +37,7 @@ public class Player {
         }
     }
 
-    void menang() {
+    public void menang() {
         if (this.poin > 5000){
             System.out.println(" Menang abangkuh 🔥");
         } else {

@@ -1,4 +1,4 @@
-package Praktikum;
+package Classes;
 
 public class Buku {
     private String nama;
