@@ -14,7 +14,7 @@ public class Matkul {
     }
 
     protected void show2 () {
-        System.out.println("Darah abangku tersisa : " + this.nama + this.jumlah);
+        show();
     }
 }
 
